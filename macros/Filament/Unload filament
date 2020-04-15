@@ -1,0 +1,12 @@
+; Unload filament
+G21 ;Let the printer know you are following this point with metric values
+G90 ;Let the printer know you are using absolute positioning
+M109 S190.000 ;Heat hotend to 190C
+G4 S5 ; wait 5 seconds
+G92 E0 ;Reset the position of the extruder
+G1 E10 F100 ; Extrude a short distance before unloading to avoid blob forming
+G92 E0 ;Reset the position of the extruder
+G1 E-700 F2000 ;Feed 700 mm of filament at 2000 mm/minute speed. Fast move.
+G92 E0 ;Reset the position of the extruder
+M400; finish move
+M84 P3 E0		; turn extruder motors off so the user can feed by hand
